@@ -103,6 +103,7 @@ class LocalBench:
                     debug=debug,
                 )
                 log_file = PathMaker.primary_log_file(i)
+                print(f"primary: {cmd}")
                 self._background_run(cmd, log_file)
 
             # Run the workers (except the faulty ones).
@@ -117,6 +118,7 @@ class LocalBench:
                         debug=debug,
                     )
                     log_file = PathMaker.worker_log_file(i, id)
+                    print(f"worker: {cmd}")
                     self._background_run(cmd, log_file)
 
             # Wait for all transactions to be processed.
